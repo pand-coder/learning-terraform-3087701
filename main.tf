@@ -8,7 +8,7 @@ data "aws_ami" "app_ami" {
 
   filter {
     name   = "virtualization-type"
-    values = ["hvn"]
+    values = ["hvm"]
   }
 
   owners = ["amazon"]
