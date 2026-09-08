@@ -86,5 +86,3 @@ resource "aws_instance" "web" {
     Name = "Learning Terraform hands-on"
   }
 }
-
-#making a small change for purpose of chekcing the lock mechanism 
