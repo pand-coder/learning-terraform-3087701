@@ -75,11 +75,12 @@ resource "aws_lb_target_group_attachment" "blog" {
 }
 
 resource "aws_instance" "web" {
-  ami                    = data.aws_ami.app_ami.id
-  instance_type          = var.instance_type
-  vpc_security_group_ids = [module.blog_sg.security_group_id]
-  subnet_id              = module.vpc.public_subnets[0]
-  iam_instance_profile   = aws_iam_instance_profile.ec2_profile.name
+  ami                         = data.aws_ami.app_ami.id
+  instance_type               = var.instance_type
+  vpc_security_group_ids      = [module.blog_sg.security_group_id]
+  subnet_id                   = module.vpc.public_subnets[0]
+  iam_instance_profile        = aws_iam_instance_profile.ec2_profile.name
+  associate_public_ip_address = true
 
   tags = {
     Name = "Learning Terraform hands-on"
